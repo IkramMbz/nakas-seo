@@ -1,0 +1,77 @@
+{
+    "name": "nakas-seo",
+    "version": "0.1.0",
+    "type": "module",
+    "description": "Real-time SEO analysis tool providing instant, lightweight feedback to improve web content while coding.",
+    "keywords": [
+        "developer-tool",
+        "seo",
+        "seo-tool",
+        "seo-analysis",
+        "content-optimization"
+    ],
+    "license": "MIT",
+    "author": "Ikram Mbechezi",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "default": "./dist/index.js"
+        },
+        "./components/*": {
+            "types": "./dist/components/*.d.ts",
+            "import": "./dist/components/*.js",
+            "default": "./dist/components/*.js"
+        },
+        "./lib/*": {
+            "types": "./dist/lib/*.d.ts",
+            "import": "./dist/lib/*.js",
+            "default": "./dist/lib/*.js"
+        },
+        "./dist/*": {
+            "types": "./dist/*.d.ts",
+            "import": "./dist/*.js",
+            "default": "./dist/*.js"
+        }
+    },
+    "scripts": {
+        "build:css": "rimraf dist/styles && esbuild src/styles/index.css --bundle --minify --outfile=dist/styles/index.css",
+        "clean": "rimraf dist",
+        "build": "pnpm run clean && tsc && pnpm run build:css",
+        "lint": "eslint \"src/**/*.{ts,tsx}\"",
+        "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.39.2",
+        "@types/node": "25.2.2",
+        "@types/react": "^19.2.11",
+        "@types/react-dom": "^19.2.3",
+        "esbuild": "^0.27.3",
+        "eslint": "^9.39.2",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-import": "^2.32.0",
+        "eslint-plugin-prettier": "^5.5.5",
+        "globals": "^17.3.0",
+        "nakas-ui": "https://github.com/IkramMbz/nakas-ui.git",
+        "next": "16.1.6",
+        "prettier": "^3.8.1",
+        "react": "^19.2.4",
+        "react-dom": "^19.2.4",
+        "rimraf": "^5.0.10",
+        "typescript": "^5.9.3",
+        "typescript-eslint": "^8.54.0"
+    },
+    "dependencies": {
+        "lucide-react": "^0.563.0"
+    },
+    "peerDependencies": {
+        "react": "^18 || ^19",
+        "react-dom": "^18 || ^19"
+    }
+}

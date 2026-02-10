@@ -1,0 +1,1 @@
+{"version":3,"file":"seo-checker-header.d.ts","sourceRoot":"","sources":["../../src/components/seo-checker-header.tsx"],"names":[],"mappings":"AAGA,KAAK,cAAc,GAAG;IACpB,UAAU,EAAE,MAAM,CAAC;IACnB,KAAK,EAAE,MAAM,CAAC;IACd,KAAK,EAAE,MAAM,CAAC;IACd,OAAO,EAAE,MAAM,IAAI,CAAC;CACrB,CAAC;AAeF,QAAA,MAAM,gBAAgB,GAAI,wCAKvB,cAAc,KAAG,KAAK,CAAC,YA6CzB,CAAC;AAEF,eAAe,gBAAgB,CAAC"}
