@@ -2,7 +2,7 @@
 
 # Nakas SEO
 
-[![Release v0.1.0](https://img.shields.io/badge/release-v0.1.0-white)](https://github.com/IkramMbz/nakas-seo/blob/main/README.md#installation) [![Nakas Suite](assets/media/img/nakas-suite.svg)](https://mbechezi.fr/#nakas-suite) [![Node.js](assets/media/img/nodejs.svg)](https://nodejs.org/) [![TypeScript](assets/media/img/typescript.svg)](https://www.typescriptlang.org/) [![Frontend Next](assets/media/img/nextjs.svg)](https://nextjs.org/) [![Frontend React](assets/media/img/react.svg)](https://reactjs.org/)
+[![Release v0.1.0](https://img.shields.io/badge/release-v0.1.0-white)](https://github.com/IkramMbz/nakas-seo/blob/main/README.md#installation) [![Nakas Suite](assets/media/img/nakas-suite.svg)](https://mbechezi.fr/#nakas-suite) [![License](assets/media/img/license-mit.svg)](https://github.com/IkramMbz/nakas-seo/blob/main/LICENSE) [![Node.js](assets/media/img/nodejs.svg)](https://nodejs.org/) [![TypeScript](assets/media/img/typescript.svg)](https://www.typescriptlang.org/) [![Frontend Next](assets/media/img/nextjs.svg)](https://nextjs.org/) [![Frontend React](assets/media/img/react.svg)](https://reactjs.org/)
 
 **Nakas SEO** is a lightweight React library that provides real-time SEO auditing and optimization tools for your web applications. It automatically analyzes your pages and displays actionable insights to improve your search engine rankings.
 
@@ -44,7 +44,7 @@ npm install https://github.com/IkramMbz/nakas-seo
 ### Basic Setup (React/Next.js Client Component)
 
 Import the SEO checker component into your React/Next.js project:
-```jsx
+```tsx
 import SeoChecker from "nakas-seo";
 
 export default function App() {
