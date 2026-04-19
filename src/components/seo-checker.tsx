@@ -1,7 +1,5 @@
 "use client";
 
-import { Eye } from "lucide-react";
-import { BodyText } from "nakas-ui";
 import { useState } from "react";
 
 import SEOCheckerHeader from "./seo-checker-header.js";
@@ -31,10 +29,11 @@ const SeoChecker = (): React.ReactElement | null => {
         </div>
       ) : (
         <button onClick={() => setOpen(true)} className="seo-button">
-          <BodyText className="seo-button-text" size="xs" color="#000">
+          <p className="seo-button-text" style={{ color: "#000" }}>
             {percentage}% of SEO compliance
-          </BodyText>
-          <Eye size={16} className="seo-button-icon" />
+          </p>
+
+          <svg className="seo-button-icon lucide lucide-eye-icon lucide-eye" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg>
         </button>
       )}
     </div>
