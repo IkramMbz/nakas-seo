@@ -11,6 +11,8 @@
 }
 
 .nakas-seo-checklist {
+    background: white;
+    color: black;
     display: flex;
     flex-direction: column;
     flex: 1;
