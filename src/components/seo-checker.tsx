@@ -6,9 +6,15 @@ import SEOCheckerHeader from "./seo-checker-header.js";
 import SEOCheckList from "./seo-checklist.js";
 import { useSeoAudit } from "../hooks/use-seo-audit.js";
 
+const OPEN_KEY = "nakas-seo-checker-open";
+
 const SeoChecker = (): React.ReactElement | null => {
   const audit = useSeoAudit();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(() => {
+    if (typeof window === "undefined") return true;
+    const stored = localStorage.getItem(OPEN_KEY);
+    return stored === null ? true : stored === "true";
+  });
 
   if (!audit) return null;
 
@@ -22,13 +28,22 @@ const SeoChecker = (): React.ReactElement | null => {
             percentage={percentage}
             score={audit.score}
             total={audit.total}
-            onClose={() => setOpen(false)}
+            onClose={() => {
+              setOpen(false);
+              localStorage.setItem(OPEN_KEY, "false");
+            }}
           />
 
           <SEOCheckList checks={audit.checks} />
         </div>
       ) : (
-        <button onClick={() => setOpen(true)} className="seo-button">
+        <button
+          onClick={() => {
+            setOpen(true);
+            localStorage.setItem(OPEN_KEY, "true");
+          }}
+          className="seo-button"
+        >
           <p className="seo-button-text" style={{ color: "#000" }}>
             {percentage}% of SEO compliance
           </p>
