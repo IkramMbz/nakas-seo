@@ -42,7 +42,7 @@ npm init -y
 Then install the library directly from GitHub (since it's not yet published on npm):
 
 ```bash
-npm install https://github.com/IkramMbz/seo-gk
+npm install https://github.com/IkramMbz/seo.gk
 ```
 
 ## Usage
@@ -97,4 +97,4 @@ Components and features are actively developed and may change. Community contrib
 
 ## License
 
-seo.gk is licensed under the [MIT License](https://github.com/IkramMbz/seo-gk/blob/main/LICENSE).
+seo.gk is licensed under the [MIT License](./LICENSE).
