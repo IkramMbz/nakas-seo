@@ -6,53 +6,67 @@ import SEOCheckerHeader from "./seo-checker-header.js";
 import SEOCheckList from "./seo-checklist.js";
 import { useSeoAudit } from "../hooks/use-seo-audit.js";
 
-const OPEN_KEY = "nakas-seo-checker-open";
+const OPEN_KEY = "glitch-seo-checker-open";
 
 const SeoChecker = (): React.ReactElement | null => {
-  const audit = useSeoAudit();
-  const [open, setOpen] = useState(() => {
-    if (typeof window === "undefined") return true;
-    const stored = localStorage.getItem(OPEN_KEY);
-    return stored === null ? true : stored === "true";
-  });
+    const audit = useSeoAudit();
+    const [open, setOpen] = useState(() => {
+        if (typeof window === "undefined") return true;
+        const stored = localStorage.getItem(OPEN_KEY);
+        return stored === null ? true : stored === "true";
+    });
 
-  if (!audit) return null;
+    if (!audit) return null;
 
-  const percentage = Math.round((audit.score / audit.total) * 100);
+    const percentage = Math.round((audit.score / audit.total) * 100);
 
-  return (
-    <div className="seo-checklist-wrapper">
-      {open ? (
-        <div className="seo-checklist-panel">
-          <SEOCheckerHeader
-            percentage={percentage}
-            score={audit.score}
-            total={audit.total}
-            onClose={() => {
-              setOpen(false);
-              localStorage.setItem(OPEN_KEY, "false");
-            }}
-          />
+    return (
+        <div id="glitch-seo" className="card">
+            {open ? (
+                <>
+                    <SEOCheckerHeader
+                        percentage={percentage}
+                        score={audit.score}
+                        total={audit.total}
+                        onClose={() => {
+                            setOpen(false);
+                            localStorage.setItem(OPEN_KEY, "false");
+                        }}
+                    />
 
-          <SEOCheckList checks={audit.checks} />
+                    <SEOCheckList checks={audit.checks} />
+                </>
+            ) : (
+                <button
+                    onClick={() => {
+                        setOpen(true);
+                        localStorage.setItem(OPEN_KEY, "true");
+                    }}
+                    id="glitch-seo-button"
+                >
+                    <p className="glitch-seo-button-text" style={{ color: "#000" }}>
+                        {percentage}% of SEO compliance
+                    </p>
+
+                    <svg
+                        className="glitch-seo-button-icon lucide lucide-eye-icon lucide-eye"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    >
+                        <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+                        <circle cx="12" cy="12" r="3" />
+                    </svg>
+                </button>
+            )}
         </div>
-      ) : (
-        <button
-          onClick={() => {
-            setOpen(true);
-            localStorage.setItem(OPEN_KEY, "true");
-          }}
-          className="seo-button"
-        >
-          <p className="seo-button-text" style={{ color: "#000" }}>
-            {percentage}% of SEO compliance
-          </p>
-
-          <svg className="seo-button-icon lucide lucide-eye-icon lucide-eye" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg>
-        </button>
-      )}
-    </div>
-  );
+    );
 };
 
 export default SeoChecker;

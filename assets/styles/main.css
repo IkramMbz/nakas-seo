@@ -1,0 +1,49 @@
+.card {
+    background: var(--color-secondary-background);
+    border: 2px solid var(--color-primary-border);
+    border-radius: var(--radius-universal);
+    box-shadow: var(--shadow-universal);
+    outline: none;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Spacing */
+
+.spacing-x,
+.spacing-x-double,
+.spacing-x-half,
+.spacing-x-quart,
+.annoucement-badge {
+    align-items: center;
+    display: flex;
+}
+
+.spacing-x,
+.spacing-y {
+    gap: var(--spacing-unit);
+}
+
+.spacing-x-double,
+.spacing-y-double {
+    gap: var(--spacing-unit-double);
+}
+
+.spacing-x-half,
+.spacing-y-half {
+    gap: var(--spacing-unit-half);
+}
+
+.spacing-x-quart,
+.spacing-y-quart {
+    gap: var(--spacing-unit-quart);
+}
+
+.spacing-y,
+.spacing-y-double,
+.spacing-y-half,
+.spacing-y-quart,
+.card {
+    display: flex;
+    flex-direction: column;
+}

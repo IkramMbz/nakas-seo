@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { SEO_RULES } from "./seo.core.js";
 // Page type detection
 const getPageType = () => {
@@ -83,7 +84,7 @@ export function runSeoAudit() {
         },
         _mainContent: undefined,
         get mainContent() {
-            return (this._mainContent ?? (this._mainContent = document.querySelector("main#main-content")));
+            return (this._mainContent ?? (this._mainContent = document.querySelector("main.main-content")));
         },
         _hostname: null,
         get hostname() {
@@ -91,8 +92,8 @@ export function runSeoAudit() {
         },
         _currentUrl: null,
         get currentUrl() {
-            return (this._currentUrl ?? (this._currentUrl = location.href.split(/[?#]/)[0]));
-        },
+            return (this._currentUrl ?? (this._currentUrl = location.href.split(/[?#]/)[0] ?? ""));
+        }
     };
     const checks = {};
     // 1. DOCUMENT FOUNDATION
@@ -105,7 +106,7 @@ export function runSeoAudit() {
         if (obsoleteTags.length > 0) {
             return {
                 status: "error",
-                message: `${obsoleteTags.length} obsolete HTML tags found`,
+                message: `${obsoleteTags.length} obsolete HTML tags found`
             };
         }
         return { status: "success", message: "Valid HTML5 structure" };
@@ -118,7 +119,7 @@ export function runSeoAudit() {
         if (charset !== "UTF-8") {
             return {
                 status: "warning",
-                message: `Non-standard charset: ${charset} (UTF-8 recommended)`,
+                message: `Non-standard charset: ${charset} (UTF-8 recommended)`
             };
         }
         return { status: "success", message: "UTF-8" };
@@ -137,14 +138,14 @@ export function runSeoAudit() {
         if (!cache.metaViewport) {
             return {
                 status: "error",
-                message: "Missing viewport meta tag (critical for mobile)",
+                message: "Missing viewport meta tag (critical for mobile)"
             };
         }
         const content = cache.metaViewport.content;
         if (!content.includes("width=device-width")) {
             return {
                 status: "warning",
-                message: "Viewport missing width=device-width",
+                message: "Viewport missing width=device-width"
             };
         }
         return { status: "success", message: content };
@@ -161,7 +162,7 @@ export function runSeoAudit() {
         if (!cache.metaRobots) {
             return {
                 status: "success",
-                message: "Default indexing (no robots directive)",
+                message: "Default indexing (no robots directive)"
             };
         }
         const content = cache.metaRobots.content.toLowerCase();
@@ -169,13 +170,13 @@ export function runSeoAudit() {
         if (directives.includes("noindex")) {
             return {
                 status: "error",
-                message: `⚠️ NOINDEX active: ${cache.metaRobots.content}`,
+                message: `⚠️ NOINDEX active: ${cache.metaRobots.content}`
             };
         }
         if (directives.includes("nofollow")) {
             return {
                 status: "warning",
-                message: `NOFOLLOW active: ${cache.metaRobots.content}`,
+                message: `NOFOLLOW active: ${cache.metaRobots.content}`
             };
         }
         return { status: "success", message: cache.metaRobots.content };
@@ -195,7 +196,7 @@ export function runSeoAudit() {
             if (!isLocalhost && canonicalUrl !== cache.currentUrl) {
                 return {
                     status: "warning",
-                    message: `Canonical mismatch: ${canonicalUrl}`,
+                    message: `Canonical mismatch: ${canonicalUrl}`
                 };
             }
             return { status: "success", message: href };
@@ -210,7 +211,7 @@ export function runSeoAudit() {
     checks.sitemapXml = (() => {
         return {
             status: "info",
-            message: "Ensure sitemap.xml exists in /public or App Router (for Next.js)",
+            message: "Ensure sitemap.xml exists in /public or App Router (for Next.js)"
         };
     })();
     // 3. PRIMARY METADATA
@@ -222,13 +223,13 @@ export function runSeoAudit() {
         if (length < SEO_RULES.TITLE_MIN) {
             return {
                 status: "warning",
-                message: `Too short: ${length}/${SEO_RULES.TITLE_MIN}-${SEO_RULES.TITLE_MAX} chars`,
+                message: `Too short: ${length}/${SEO_RULES.TITLE_MIN}-${SEO_RULES.TITLE_MAX} chars`
             };
         }
         if (length > SEO_RULES.TITLE_MAX) {
             return {
                 status: "warning",
-                message: `Too long: ${length}/${SEO_RULES.TITLE_MAX} chars (truncated in SERPs)`,
+                message: `Too long: ${length}/${SEO_RULES.TITLE_MAX} chars (truncated in SERPs)`
             };
         }
         return { status: "success", message: `${length} chars: ${cache.title}` };
@@ -242,13 +243,13 @@ export function runSeoAudit() {
         if (length < SEO_RULES.DESCRIPTION_MIN) {
             return {
                 status: "warning",
-                message: `Too short: ${length}/${SEO_RULES.DESCRIPTION_MIN}-${SEO_RULES.DESCRIPTION_MAX} chars`,
+                message: `Too short: ${length}/${SEO_RULES.DESCRIPTION_MIN}-${SEO_RULES.DESCRIPTION_MAX} chars`
             };
         }
         if (length > SEO_RULES.DESCRIPTION_MAX) {
             return {
                 status: "warning",
-                message: `Too long: ${length}/${SEO_RULES.DESCRIPTION_MAX} chars (truncated in SERPs)`,
+                message: `Too long: ${length}/${SEO_RULES.DESCRIPTION_MAX} chars (truncated in SERPs)`
             };
         }
         return { status: "success", message: `${length} chars: ${content}` };
@@ -265,13 +266,13 @@ export function runSeoAudit() {
         if (keywordList.length > SEO_RULES.KEYWORDS_MAX) {
             return {
                 status: "warning",
-                message: `Excessive: ${keywordList.length} > ${SEO_RULES.KEYWORDS_MAX}`,
+                message: `Excessive: ${keywordList.length} > ${SEO_RULES.KEYWORDS_MAX}`
             };
         }
         if (keywordList.length < SEO_RULES.KEYWORDS_MIN) {
             return {
                 status: "warning",
-                message: `Minimal: ${keywordList.length} < ${SEO_RULES.KEYWORDS_MIN}`,
+                message: `Minimal: ${keywordList.length} < ${SEO_RULES.KEYWORDS_MIN}`
             };
         }
         return { status: "success", message: `${keywordList.length} keywords` };
@@ -284,7 +285,7 @@ export function runSeoAudit() {
         if (!author?.content) {
             return {
                 status: "warning",
-                message: "Missing author meta (credibility for articles)",
+                message: "Missing author meta (credibility for articles)"
             };
         }
         return { status: "success", message: `Author: ${author.content}` };
@@ -298,10 +299,10 @@ export function runSeoAudit() {
         if (h1s.length > 1) {
             return {
                 status: "warning",
-                message: `${h1s.length} H1 tags (only 1 recommended)`,
+                message: `${h1s.length} H1 tags (only 1 recommended)`
             };
         }
-        const h1Text = h1s[0].textContent?.trim() || "";
+        const h1Text = h1s[0]?.textContent?.trim() || "";
         if (!h1Text) {
             return { status: "error", message: "H1 is empty" };
         }
@@ -310,7 +311,7 @@ export function runSeoAudit() {
         }
         return {
             status: "success",
-            message: `"${h1Text.slice(0, 60)}${h1Text.length > 60 ? "..." : ""}"`,
+            message: `"${h1Text.slice(0, 60)}${h1Text.length > 60 ? "..." : ""}"`
         };
     })();
     checks.headingHierarchy = (() => {
@@ -320,7 +321,7 @@ export function runSeoAudit() {
         const issues = [];
         let lastLevel = 0;
         cache.headings.forEach((heading, index) => {
-            const level = parseInt(heading.tagName[1], 10);
+            const level = parseInt(heading.tagName[1] ?? "0", 10);
             if (lastLevel > 0 && level > lastLevel + 1) {
                 issues.push(`Skip H${lastLevel}→H${level} at position ${index + 1}`);
             }
@@ -335,15 +336,18 @@ export function runSeoAudit() {
         }
         return {
             status: "success",
-            message: `${cache.headings.length} headings with proper hierarchy`,
+            message: `${cache.headings.length} headings with proper hierarchy`
         };
     })();
     // 5. CONTENT QUALITY
     checks.contentLengthAndQuality = (() => {
         if (!cache.mainContent) {
-            return { status: "error", message: 'Missing <main id="main-content">' };
+            return { status: "error", message: 'Missing <main class="main-content etc.">' };
         }
         const clone = cache.mainContent.cloneNode(true);
+        if (!(clone instanceof HTMLElement)) {
+            return { status: "error", message: "Failed to clone main content" };
+        }
         clone
             .querySelectorAll("nav,footer,header,aside,button,svg,noscript,script,style")
             .forEach((el) => el.remove());
@@ -353,23 +357,23 @@ export function runSeoAudit() {
         if (charCount < SEO_RULES.CHAR_COUNT_MIN) {
             return {
                 status: "error",
-                message: `Insufficient: ${charCount} < ${SEO_RULES.CHAR_COUNT_MIN} chars`,
+                message: `Insufficient: ${charCount} < ${SEO_RULES.CHAR_COUNT_MIN} chars`
             };
         }
         if (wordCount < SEO_RULES.WORD_COUNT_MIN) {
             return {
                 status: "warning",
-                message: `Low: ${wordCount} < ${SEO_RULES.WORD_COUNT_MIN} words`,
+                message: `Low: ${wordCount} < ${SEO_RULES.WORD_COUNT_MIN} words`
             };
         }
         return {
             status: "success",
-            message: `${wordCount} words, ${charCount} chars`,
+            message: `${wordCount} words, ${charCount} chars`
         };
     })();
     checks.sentenceReadability = (() => {
         if (!cache.mainContent) {
-            return { status: "error", message: 'Missing <main id="main-content">' };
+            return { status: "error", message: 'Missing <main class="main-content etc.">' };
         }
         const text = cache.mainContent.textContent?.trim() || "";
         const sentences = text.split(/[.!?]+/).filter((s) => s.trim().length > 0);
@@ -382,17 +386,17 @@ export function runSeoAudit() {
         if (longSentences.length > sentences.length * 0.5) {
             return {
                 status: "warning",
-                message: `${longSentences.length} long sentences (avg ${Math.round(avgWordsPerSentence)} words/sentence)`,
+                message: `${longSentences.length} long sentences (avg ${Math.round(avgWordsPerSentence)} words/sentence)`
             };
         }
         return {
             status: "success",
-            message: `Avg ${Math.round(avgWordsPerSentence)} words/sentence`,
+            message: `Avg ${Math.round(avgWordsPerSentence)} words/sentence`
         };
     })();
     checks.duplicateContent = (() => {
         if (!cache.mainContent) {
-            return { status: "error", message: 'Missing <main id="main-content">' };
+            return { status: "error", message: 'Missing <main class="main-content etc.">' };
         }
         const text = cache.mainContent.textContent || "";
         const sentences = text
@@ -409,7 +413,7 @@ export function runSeoAudit() {
         if (duplicates.length > 5) {
             return {
                 status: "warning",
-                message: `${duplicates.length} duplicate sentences detected`,
+                message: `${duplicates.length} duplicate sentences detected`
             };
         }
         return { status: "success", message: "No significant duplication" };
@@ -429,8 +433,7 @@ export function runSeoAudit() {
         if (withoutDimensions.length > cache.images.length * 0.3) {
             warnings.push(`${withoutDimensions.length} missing dimensions (CLS)`);
         }
-        if (withoutLazy.length > cache.images.length * 0.5 &&
-            cache.images.length > 3) {
+        if (withoutLazy.length > cache.images.length * 0.5 && cache.images.length > 3) {
             warnings.push(`${withoutLazy.length} not lazy-loaded`);
         }
         if (warnings.length > 0) {
@@ -438,7 +441,7 @@ export function runSeoAudit() {
         }
         return {
             status: "success",
-            message: `${cache.images.length} images optimized`,
+            message: `${cache.images.length} images optimized`
         };
     })();
     checks.imageFormats = (() => {
@@ -455,7 +458,7 @@ export function runSeoAudit() {
         if (legacyImages.length > cache.images.length * 0.7 && !hasModernFormat) {
             return {
                 status: "warning",
-                message: `${legacyImages.length} legacy formats (use WebP/AVIF)`,
+                message: `${legacyImages.length} legacy formats (use WebP/AVIF)`
             };
         }
         return { status: "success", message: "Modern formats used" };
@@ -492,7 +495,7 @@ export function runSeoAudit() {
         }
         return {
             status: "success",
-            message: `Internal: ${internal.length}, External: ${external.length}`,
+            message: `Internal: ${internal.length}, External: ${external.length}`
         };
     })();
     checks.externalLinksSecurity = (() => {
@@ -512,12 +515,12 @@ export function runSeoAudit() {
         if (unsecure.length > 0) {
             return {
                 status: "info",
-                message: `${unsecure.length} missing noopener/noreferrer (security)`,
+                message: `${unsecure.length} missing noopener/noreferrer (security)`
             };
         }
         return {
             status: "info",
-            message: `${external.length} secure external links`,
+            message: `${external.length} secure external links`
         };
     })();
     // 8. INTERNATIONALIZATION
@@ -544,7 +547,7 @@ export function runSeoAudit() {
         }
         return {
             status: "success",
-            message: `${cache.hreflangLinks.length} hreflang tags`,
+            message: `${cache.hreflangLinks.length} hreflang tags`
         };
     })();
     // 9. OPEN GRAPH
@@ -562,12 +565,12 @@ export function runSeoAudit() {
         if (content.length < 50) {
             return {
                 status: "warning",
-                message: `Too short: ${content.length} chars`,
+                message: `Too short: ${content.length} chars`
             };
         }
         return {
             status: "success",
-            message: content.slice(0, SEO_RULES.OG_PREVIEW_LENGTH),
+            message: content.slice(0, SEO_RULES.OG_PREVIEW_LENGTH)
         };
     })();
     checks.ogImage = (() => {
@@ -589,14 +592,7 @@ export function runSeoAudit() {
         if (!cache.ogType?.content) {
             return { status: "warning", message: "Missing og:type" };
         }
-        const validTypes = [
-            "website",
-            "article",
-            "product",
-            "video.movie",
-            "music.song",
-            "book",
-        ];
+        const validTypes = ["website", "article", "product", "video.movie", "music.song", "book"];
         const type = cache.ogType.content;
         if (!validTypes.includes(type)) {
             return { status: "warning", message: `Non-standard type: ${type}` };
@@ -639,10 +635,10 @@ export function runSeoAudit() {
         }
         const locale = ogLocale.content;
         if (htmlLang &&
-            !locale.toLowerCase().startsWith(htmlLang.toLowerCase().split("-")[0])) {
+            !locale.toLowerCase().startsWith(htmlLang.toLowerCase().split("-")[0] ?? "")) {
             return {
                 status: "warning",
-                message: `Inconsistent with lang="${htmlLang}"`,
+                message: `Inconsistent with lang="${htmlLang}"`
             };
         }
         return { status: "success", message: locale };
@@ -661,7 +657,7 @@ export function runSeoAudit() {
         }
         return {
             status: "success",
-            message: `${cardType}${twitterSite?.content ? ` @${twitterSite.content}` : ""}`,
+            message: `${cardType}${twitterSite?.content ? ` @${twitterSite.content}` : ""}`
         };
     })();
     checks.twitterImage = (() => {
@@ -685,7 +681,7 @@ export function runSeoAudit() {
         if (cache.schemas.length === 0) {
             return {
                 status: "info",
-                message: "No structured data (Schema.org recommended)",
+                message: "No structured data (Schema.org recommended)"
             };
         }
         let validSchemas = 0;
@@ -707,12 +703,12 @@ export function runSeoAudit() {
         if (invalidSchemas > 0) {
             return {
                 status: "warning",
-                message: `${validSchemas} valid, ${invalidSchemas} invalid`,
+                message: `${validSchemas} valid, ${invalidSchemas} invalid`
             };
         }
         return {
             status: "success",
-            message: `${validSchemas} valid JSON-LD schema(s)`,
+            message: `${validSchemas} valid JSON-LD schema(s)`
         };
     })();
     checks.schemaOrganization = (() => {
@@ -720,8 +716,7 @@ export function runSeoAudit() {
         cache.schemas.forEach((script) => {
             try {
                 const json = JSON.parse(script.textContent || "");
-                if (json["@type"] === "Organization" ||
-                    json["@type"] === "LocalBusiness") {
+                if (json["@type"] === "Organization" || json["@type"] === "LocalBusiness") {
                     hasOrganization = true;
                 }
             }
@@ -750,7 +745,7 @@ export function runSeoAudit() {
         if (!hasBreadcrumb) {
             return {
                 status: "info",
-                message: "Consider adding BreadcrumbList schema",
+                message: "Consider adding BreadcrumbList schema"
             };
         }
         return { status: "info", message: "Breadcrumb schema present" };
@@ -774,7 +769,7 @@ export function runSeoAudit() {
         if (!hasArticle) {
             return {
                 status: "warning",
-                message: "Missing Article schema (og:type=article)",
+                message: "Missing Article schema (og:type=article)"
             };
         }
         return { status: "success", message: "Article schema present" };
@@ -798,7 +793,7 @@ export function runSeoAudit() {
         if (!hasProduct) {
             return {
                 status: "warning",
-                message: "Missing Product schema (og:type=product)",
+                message: "Missing Product schema (og:type=product)"
             };
         }
         return { status: "success", message: "Product schema present" };
@@ -821,12 +816,12 @@ export function runSeoAudit() {
         if (hasFAQContent && !hasFAQ) {
             return {
                 status: "warning",
-                message: "FAQ content detected (add FAQ schema)",
+                message: "FAQ content detected (add FAQ schema)"
             };
         }
         return {
             status: "success",
-            message: hasFAQ ? "FAQ schema present" : "N/A",
+            message: hasFAQ ? "FAQ schema present" : "N/A"
         };
     })();
     // 12. PERFORMANCE
@@ -850,19 +845,19 @@ export function runSeoAudit() {
         if (preload.length > 5) {
             return {
                 status: "warning",
-                message: `Too many preloads: ${preload.length} (max 3-5)`,
+                message: `Too many preloads: ${preload.length} (max 3-5)`
             };
         }
         const totalHints = preconnect.length + dnsPrefetch.length + preload.length;
         if (totalHints === 0) {
             return {
                 status: "info",
-                message: "No resource hints found. Consider adding some to improve resource loading",
+                message: "No resource hints found. Consider adding some to improve resource loading"
             };
         }
         return {
             status: "success",
-            message: `${preconnect.length} preconnect, ${preload.length} preload`,
+            message: `${preconnect.length} preconnect, ${preload.length} preload`
         };
     })();
     checks.inlineStyles = (() => {
@@ -871,12 +866,12 @@ export function runSeoAudit() {
         if (count > 50) {
             return {
                 status: "warning",
-                message: `Excessive inline styles: ${count}`,
+                message: `Excessive inline styles: ${count}`
             };
         }
         return {
             status: "success",
-            message: count === 0 ? "No inline styles" : `${count} inline styles`,
+            message: count === 0 ? "No inline styles" : `${count} inline styles`
         };
     })();
     // 13. ANALYTICS & TRACKING
@@ -906,7 +901,7 @@ export function runSeoAudit() {
             "tarteaucitron",
             "axeptio",
             "cookiefirst",
-            "nakas-cookies",
+            "glitch-cookies"
         ];
         const hasCookieConsent = cache.scripts.some((script) => cookieTools.some((tool) => script.src.toLowerCase().includes(tool)));
         if (!hasCookieConsent) {
@@ -918,7 +913,7 @@ export function runSeoAudit() {
     checks.csp = (() => {
         return {
             status: "info",
-            message: "Configure CSP in next.config or meta tag",
+            message: "Configure CSP in next.config or meta tag"
         };
     })();
     checks.referrerPolicy = (() => {
@@ -932,14 +927,13 @@ export function runSeoAudit() {
         }
         const withoutLabel = Array.from(inputs).filter((input) => {
             const hasLabel = input.id && document.querySelector(`label[for="${input.id}"]`);
-            const hasAriaLabel = input.hasAttribute("aria-label") ||
-                input.hasAttribute("aria-labelledby");
+            const hasAriaLabel = input.hasAttribute("aria-label") || input.hasAttribute("aria-labelledby");
             return !hasLabel && !hasAriaLabel;
         });
         if (withoutLabel.length > 0) {
             return {
                 status: "warning",
-                message: `${withoutLabel.length}/${inputs.length} fields without labels`,
+                message: `${withoutLabel.length}/${inputs.length} fields without labels`
             };
         }
         return { status: "success", message: `${inputs.length} labeled fields` };
@@ -961,20 +955,19 @@ export function runSeoAudit() {
         }
         const tooSmall = Array.from(interactive).filter((el) => {
             const rect = el.getBoundingClientRect();
-            return ((rect.width > 0 && rect.width < 44) ||
-                (rect.height > 0 && rect.height < 44));
+            return (rect.width > 0 && rect.width < 44) || (rect.height > 0 && rect.height < 44);
         });
         if (tooSmall.length > interactive.length * 0.3) {
             return {
                 status: "warning",
-                message: `${tooSmall.length}/${interactive.length} targets < 44px`,
+                message: `${tooSmall.length}/${interactive.length} targets < 44px`
             };
         }
         return { status: "success", message: "Touch targets ≥44px" };
     })();
     checks.fontSizeReadability = (() => {
         if (!cache.mainContent) {
-            return { status: "error", message: 'Missing <main id="main-content">' };
+            return { status: "error", message: 'Missing <main class="main-content etc.">' };
         }
         const paragraphs = cache.mainContent.querySelectorAll("p");
         if (paragraphs.length === 0) {
@@ -987,7 +980,7 @@ export function runSeoAudit() {
         if (tooSmall.length > paragraphs.length * 0.5) {
             return {
                 status: "warning",
-                message: `${tooSmall.length}/${paragraphs.length} paragraphs < 16px`,
+                message: `${tooSmall.length}/${paragraphs.length} paragraphs < 16px`
             };
         }
         return { status: "success", message: "Font size ≥16px" };
@@ -999,7 +992,7 @@ export function runSeoAudit() {
     return {
         checks,
         score: successCount,
-        total: totalCount,
+        total: totalCount
     };
 }
 //# sourceMappingURL=seo.engine.js.map

@@ -1,0 +1,164 @@
+#glitch-seo {
+    max-height: 32rem;
+    bottom: var(--spacing-unit);
+    font-size: var(--font-size-sm);
+    right: var(--spacing-unit);
+    position: fixed;
+    z-index: 2147483643;
+}
+
+#glitch-seo-button {
+    cursor: pointer;
+    padding: var(--spacing-unit-quart) var(--spacing-unit-half);
+    border-radius: 9999px;
+    box-shadow: var(--shadow-universal);
+    background-color: #fff;
+    color: #000;
+    border: none;
+}
+
+#glitch-seo-button,
+.glitch-seo-checker-close,
+.glitch-seo-checker-header-top,
+.glitch-seo-checker-status,
+.glitch-seo-checker-status-item,
+.glitch-seo-checklist,
+.glitch-seo-checklist-item {
+    display: flex;
+}
+
+.glitch-seo-checklist-item,
+.glitch-seo-checker-close,
+.glitch-seo-checker-status-item,
+#glitch-seo-button {
+    align-items: center;
+}
+
+.glitch-seo-checker-status,
+.glitch-seo-checker-status-item {
+    gap: var(--spacing-unit-quart);
+}
+
+.glitch-seo-button-text {
+    font-weight: 300;
+}
+
+.glitch-seo-button-icon {
+    display: inline-flex;
+}
+
+#glitch-seo-button,
+.glitch-seo-checklist-item {
+    gap: var(--spacing-unit-half);
+    text-align: left;
+}
+
+.glitch-seo-checklist,
+.glitch-seo-checker-status {
+    gap: var(--spacing-unit);
+}
+
+.glitch-seo-checklist {
+    width: 20rem;
+    color: var(--color-primary-color);
+    flex: 1;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: var(--spacing-unit);
+}
+
+.glitch-seo-checklist-item .title {
+    font-weight: 600;
+}
+
+.glitch-seo-checklist-item .subtitle {
+    opacity: 0.8;
+}
+
+.glitch-seo-checker-header {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background: linear-gradient(to right, #000 30%, var(--color-error)) !important;
+    color: #fff;
+    padding: var(--spacing-unit);
+}
+
+.glitch-seo-checker-header-top {
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.glitch-seo-checker-status-color {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
+.glitch-seo-checklist-item .icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.glitch-seo-checker-status-color {
+    border-radius: var(--radius-universal);
+}
+
+.glitch-seo-text-success {
+    color: var(--color-success);
+}
+
+.glitch-seo-text-warning {
+    color: var(--color-warning);
+}
+
+.glitch-seo-text-error {
+    color: var(--color-error);
+}
+
+.glitch-seo-text-info {
+    color: var(--color-info);
+}
+
+.glitch-seo-checker-status-success,
+.glitch-seo-checker-status-warning,
+.glitch-seo-checker-status-error,
+.glitch-seo-checker-status-info {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glitch-seo-checker-status-success {
+    background-color: var(--color-success);
+}
+
+.glitch-seo-checker-status-warning {
+    background-color: var(--color-warning);
+}
+
+.glitch-seo-checker-status-error {
+    background-color: var(--color-error);
+}
+
+.glitch-seo-checker-status-info {
+    background-color: var(--color-info);
+}
+
+.glitch-seo-checker-close {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.glitch-seo-checker-close {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.glitch-seo-checker-status {
+    margin-top: var(--spacing-unit-quart);
+}

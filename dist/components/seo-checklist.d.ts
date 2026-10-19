@@ -1,5 +1,5 @@
 import "../styles/index.css";
-import { SeoStatus } from "../types.js";
+import type { SeoStatus } from "../types.js";
 type Check = {
     status: SeoStatus;
     message: string;

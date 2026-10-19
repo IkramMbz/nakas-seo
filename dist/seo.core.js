@@ -10,7 +10,7 @@ export const SEO_RULES = {
     KEYWORDS_MIN: 3,
     KEYWORDS_MAX: 9,
     RESOURCES_MAX_CSS_SCRIPTS: 9,
-    RESOURCES_MAX_BLOCKING_SCRIPTS: 9,
+    RESOURCES_MAX_BLOCKING_SCRIPTS: 9
 };
 // Default Configuration
 export const DEFAULT_SEO_CONFIG = {
@@ -33,25 +33,25 @@ export const DEFAULT_SEO_CONFIG = {
             {
                 rel: "mask-icon",
                 url: "/assets/media/img/manifest/favicon-32x32.png",
-                color: "#000000",
+                color: "#000000"
             },
             {
                 rel: "me",
-                url: "https://twitter.com/yourbrand",
+                url: "https://twitter.com/yourbrand"
             },
             {
                 rel: "me",
-                url: "https://www.linkedin.com/company/yourbrand",
+                url: "https://www.linkedin.com/company/yourbrand"
             },
             {
                 rel: "me",
-                url: "https://github.com/yourbrand",
-            },
-        ],
+                url: "https://github.com/yourbrand"
+            }
+        ]
     },
     twitterCardType: "summary_large_image",
     // manifest: "/manifest.json",
-    googleSiteVerification: "ton-code-google-search-console",
+    googleSiteVerification: "ton-code-google-search-console"
 };
 // Singleton instance
 let seoConfigInstance = DEFAULT_SEO_CONFIG;
@@ -59,7 +59,7 @@ let seoConfigInstance = DEFAULT_SEO_CONFIG;
 export function initSeoConfig(config) {
     seoConfigInstance = {
         ...DEFAULT_SEO_CONFIG,
-        ...config,
+        ...config
     };
 }
 export function getSeoConfig() {

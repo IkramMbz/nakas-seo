@@ -7,9 +7,8 @@ function isDev() {
         return process.env.NODE_ENV === "development";
     }
     // Vite / TanStack
-    if (typeof import.meta !== "undefined" &&
-        import.meta.env) {
-        return Boolean(import.meta.env?.DEV);
+    if (typeof import.meta !== "undefined" && import.meta.env) {
+        return Boolean(import.meta.env.DEV);
     }
     return false;
 }
@@ -18,11 +17,13 @@ export function useSeoAudit() {
     const [audit, setAudit] = useState(null);
     useEffect(() => {
         if (!isDev())
-            return;
+            return undefined;
         const execute = () => setAudit(runSeoAudit());
         execute();
         const interval = setInterval(execute, AUDIT_INTERVAL);
-        return () => clearInterval(interval);
+        return () => {
+            clearInterval(interval);
+        };
     }, []);
     return audit;
 }
