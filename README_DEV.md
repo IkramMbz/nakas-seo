@@ -1,15 +1,15 @@
-# Tester `glitch-seo` en temps réel (dev)
+# Tester `seo-gk` en temps réel (dev)
 
-Ce guide explique comment tester `glitch-seo` dans un projet React local, avec recompilation automatique à chaque modification.
+Ce guide explique comment tester `seo-gk` dans un projet React local, avec recompilation automatique à chaque modification.
 
 Deux terminaux sont nécessaires :
 
 - **Terminal 1** : le projet de test (`test-seo`)
-- **Terminal 2** : le package (`glitch-seo`)
+- **Terminal 2** : le package (`seo-gk`)
 
 ## 1. Créer le projet de test
 
-Les chemins ci-dessous sont des exemples, à adapter en fonction de là où vous souhaitez stocker (`test-seo`) et (`glitch-seo`).
+Les chemins ci-dessous sont des exemples, à adapter en fonction de là où vous souhaitez stocker (`test-seo`) et (`seo-gk`).
 
 Dans le Terminal 1 :
 
@@ -20,12 +20,12 @@ cd test-seo
 pnpm install
 ```
 
-## 2. Lier `glitch-seo` au projet de test
+## 2. Lier `seo-gk` au projet de test
 
 Toujours dans `test-seo` :
 
 ```powershell
-pnpm add "link:C:\Users\nom_utilisateur\directory\glitch-seo"
+pnpm add "link:C:\Users\nom_utilisateur\directory\seo-gk"
 ```
 
 ## 3. Configurer Vite
@@ -42,7 +42,7 @@ export default defineConfig({
         dedupe: ["react", "react-dom"]
     },
     optimizeDeps: {
-        exclude: ["glitch-seo"]
+        exclude: ["seo-gk"]
     },
     server: {
         watch: {
@@ -57,14 +57,14 @@ export default defineConfig({
 Dans `test-seo/src/App.tsx` :
 
 ```tsx
-import { SEOChecker } from "glitch-seo";
+import { SEOChecker } from "seo-gk";
 
 function App() {
     return (
         <>
-            <main>
+            <main class="main-content etc.">
                 <h1>Ma page de test SEO</h1>
-                <p>Contenu à analyser par Glitch SEO.</p>
+                <p>Contenu à analyser par seo.gk.</p>
             </main>
 
             {import.meta.env.DEV && <SEOChecker />}
@@ -91,10 +91,10 @@ export default App;
 pnpm dev
 ```
 
-**Terminal 2** (dans `glitch-seo`) : compiler TypeScript en continu (`tsc --watch`).
+**Terminal 2** (dans `seo-gk`) : compiler TypeScript en continu (`tsc --watch`).
 
 ```powershell
-cd C:\Users\nom_utilisateur\directory\glitch-seo
+cd C:\Users\nom_utilisateur\directory\seo-gk
 pnpm install
 pnpm dev
 ```
@@ -104,8 +104,8 @@ Ouvrir ensuite l'URL locale affichée par Vite dans le Terminal 1.
 ## Résumé
 
 1. Terminal 1 : `pnpm dev` dans `test-seo` (affiche l'application).
-2. Terminal 2 : `pnpm dev` dans `glitch-seo` (recompile le package).
-3. Modifier le code de `glitch-seo`, puis vérifier le résultat dans le navigateur.
+2. Terminal 2 : `pnpm dev` dans `seo-gk` (recompile le package).
+3. Modifier le code de `seo-gk`, puis vérifier le résultat dans le navigateur.
 
 Tips : Pour éviter toute interférence avec le design, il est conseillé de builder nakas-seo une fois les modifications terminées ou, le cas échéant, de vider temporairement le contenu du fichier `dist/styles/index.css`.
 

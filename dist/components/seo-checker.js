@@ -4,7 +4,7 @@ import { useState } from "react";
 import SEOCheckerHeader from "./seo-checker-header.js";
 import SEOCheckList from "./seo-checklist.js";
 import { useSeoAudit } from "../hooks/use-seo-audit.js";
-const OPEN_KEY = "glitch-seo-checker-open";
+const OPEN_KEY = "seo-gk-checker-open";
 const SeoChecker = () => {
     const audit = useSeoAudit();
     const [open, setOpen] = useState(() => {
@@ -16,13 +16,13 @@ const SeoChecker = () => {
     if (!audit)
         return null;
     const percentage = Math.round((audit.score / audit.total) * 100);
-    return (_jsx("div", { id: "glitch-seo", className: "card", children: open ? (_jsxs(_Fragment, { children: [_jsx(SEOCheckerHeader, { percentage: percentage, score: audit.score, total: audit.total, onClose: () => {
+    return (_jsx("div", { id: "seo-gk", className: "card", children: open ? (_jsxs(_Fragment, { children: [_jsx(SEOCheckerHeader, { percentage: percentage, score: audit.score, total: audit.total, onClose: () => {
                         setOpen(false);
                         localStorage.setItem(OPEN_KEY, "false");
                     } }), _jsx(SEOCheckList, { checks: audit.checks })] })) : (_jsxs("button", { onClick: () => {
                 setOpen(true);
                 localStorage.setItem(OPEN_KEY, "true");
-            }, id: "glitch-seo-button", children: [_jsxs("p", { className: "glitch-seo-button-text", style: { color: "#000" }, children: [percentage, "% of SEO compliance"] }), _jsxs("svg", { className: "glitch-seo-button-icon lucide lucide-eye-icon lucide-eye", xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [_jsx("path", { d: "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" }), _jsx("circle", { cx: "12", cy: "12", r: "3" })] })] })) }));
+            }, id: "seo-gk-button", children: [_jsxs("p", { className: "seo-gk-button-text", style: { color: "#000" }, children: [percentage, "% of SEO compliance"] }), _jsxs("svg", { className: "seo-gk-button-icon lucide lucide-eye-icon lucide-eye", xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [_jsx("path", { d: "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" }), _jsx("circle", { cx: "12", cy: "12", r: "3" })] })] })) }));
 };
 export default SeoChecker;
 //# sourceMappingURL=seo-checker.js.map

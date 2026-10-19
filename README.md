@@ -1,12 +1,14 @@
 ![](/assets/media/img/logo.png)
 
-# Glitch SEO
+# seo.gk
 
-[![Release v0.3.0](https://img.shields.io/badge/release-v0.3.0-white)](https://github.com/IkramMbz/glitch-seo/blob/main/README.md#installation) [![Glitch Suite](assets/media/img/glitch-suite.svg)](https://mbechezi.fr/#glitch-suite) [![License](assets/media/img/license-mit.svg)](https://github.com/IkramMbz/glitch-seo/blob/main/LICENSE) [![Node.js](assets/media/img/nodejs.svg)](https://nodejs.org/) [![TypeScript](assets/media/img/typescript.svg)](https://www.typescriptlang.org/) [![Frontend Next](assets/media/img/nextjs.svg)](https://nextjs.org/) [![Frontend React](assets/media/img/react.svg)](https://reactjs.org/)
+[![Release v0.3.0](https://img.shields.io/badge/release-v0.3.0-white)](https://github.com/IkramMbz/seo-gk/blob/main/README.md#installation) [![Glitch Kids Suite](assets/media/img/glitch-kids-suite.svg)](https://github.com/glitchkids) [![License](assets/media/img/license-mit.svg)](https://github.com/IkramMbz/seo-gk/blob/main/LICENSE) [![Node.js](assets/media/img/nodejs.svg)](https://nodejs.org/) [![TypeScript](assets/media/img/typescript.svg)](https://www.typescriptlang.org/) [![Frontend React](assets/media/img/react.svg)](https://reactjs.org/)
 
-**Glitch SEO** is a lightweight React library that provides real-time SEO auditing and optimization tools for your web applications. It automatically analyzes your pages and displays actionable insights to improve your search engine rankings.
+**seo.gk** by Glitch Kids, is a lightweight React library that provides real-time SEO auditing and optimization tools for your web applications. It automatically analyzes your pages and displays actionable insights to improve your search engine rankings.
 
-🟠**Note:** Glitch SEO is currently in the testing phase and is not yet available on npm. It will be released soon.
+Framework-agnostic, it works with any React-based setup (Astro, Next.js, Vite, etc.).
+
+🟠**Note:** seo.gk is currently in the testing phase and is not yet available on npm. It will be released soon.
 
 ## Table of Contents
 
@@ -19,14 +21,14 @@
 ## Key Features
 
 - Real-time SEO audit with live feedback (development mode only)
+- Framework-agnostic: works with any React setup
 - Comprehensive checks covering 50+ SEO best practices
-- Structured data (Schema.org) validation
 - Performance hints (critical resources, resource hints)
 - Mobile-friendly and accessibility checks
 
 ## Installation
 
-To use Glitch SEO in your project, your environment must meet the following minimum requirements:
+To use seo.gk in your project, your environment must meet the following minimum requirements:
 
 - **Node.js** ≥ 18 (for full ESM support and modern module resolution)
 - **Package Manager:** `pnpm` ≥ 7 (or `npm` / `yarn`, scripts are tested with pnpm)
@@ -40,97 +42,54 @@ npm init -y
 Then install the library directly from GitHub (since it's not yet published on npm):
 
 ```bash
-npm install https://github.com/IkramMbz/glitch-seo
+npm install https://github.com/IkramMbz/seo-gk
 ```
 
 ## Usage
 
-### Basic Setup (React/Next.js Client Component)
+### Basic Setup
 
-Import the SEO checker component into your React/Next.js project:
+Import the SEO checker component into your React project:
 
 ```tsx
-import SeoChecker from "glitch-seo";
+import SEOChecker from "seo-gk";
 
 export default function App() {
     return (
-        <div>
-            <SeoChecker />
-            {/* Your app content */}
-        </div>
+        <body>
+            <SEOChecker />
+
+            <main class="main-content etc.">
+                <h1>My SEO-friendly page</h1>
+                {/* Your app content */}
+            </main>
+        </body>
     );
 }
 ```
 
-The `SeoChecker` component will automatically appear in development mode, displaying a floating widget with your SEO score and detailed audit results.
+The `SEOChecker` component will automatically appear in development mode, displaying a floating widget with your SEO score and detailed audit results. It is **not** dev-only by default — you must wrap it in a dev-mode check yourself, otherwise it will be visible in production. The check depends on your build tool:
 
-### Next.js Metadata Generation (App Router)
-
-Before generating metadata, you need to initialize the SEO configuration in your layout file (or whichever file acts as the main layout):
-
-```typescript
-import { initSeoConfig } from "glitch-seo";
-
-initSeoConfig({
-    siteName: "Example Site",
-    siteFullName: "Example Site - Your AI Assistant",
-    siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://example.com",
-    siteLang: "en",
-    siteLocale: "en_US",
-    titleSeparator: "|",
-
-    defaultOgImage: "/assets/images/default-og.png",
-    defaultOgImageWidth: 1200,
-    defaultOgImageHeight: 630,
-    defaultOgImageAlt: "Example Site AI Preview",
-    defaultOgImageType: "image/png",
-
-    icons: {
-        favicon: "/assets/images/favicon-32x32.png",
-        appleTouchIcon: "/assets/images/apple-180x180.png",
-        shortcut: "/assets/images/favicon-32x32.png",
-        other: [
-            { rel: "mask-icon", url: "/assets/media/img/manifest/maskable-icon-48x48.png", color: "#000000" },
-            { rel: "mask-icon", url: "/assets/media/img/manifest/maskable-icon-72x72.png", color: "#000000" },
-            { rel: "mask-icon", url: "/assets/media/img/manifest/maskable-icon-128x128.png", color: "#000000" },
-            { rel: "mask-icon", url: "/assets/media/img/manifest/maskable-icon-192x192.png", color: "#000000" },
-            { rel: "mask-icon", url: "/assets/media/img/manifest/maskable-icon-256x256.png", color: "#000000" },
-            { rel: "mask-icon", url: "/assets/media/img/manifest/maskable-icon-384x384.png", color: "#000000" },
-            { rel: "mask-icon", url: "/assets/media/img/manifest/maskable-icon-512x512.png", color: "#000000" }
-        ]
-    },
-
-    manifest: "/manifest.json"
-});
-
-export default function RootLayout({ children }: { children: ReactNode }) {
-    return (
-        <html lang="en">
-            <body>{children}</body>
-        </html>
-    );
+```tsx
+// Vite (and Vite-based tools like Astro's React integration)
+{
+    import.meta.env.DEV && <SEOChecker />;
 }
+
+// Next.js
+{
+    process.env.NODE_ENV !== "production" && <SEOChecker />;
+}
+
+// React Apps / Webpack-based setups
+{
+    process.env.NODE_ENV !== "production" && <SEOChecker />;
+}
+
+// etc.
 ```
 
-After initialization, you can use the metadata builder in your page files:
-
-```typescript
-import { buildNextMetadata } from "glitch-seo";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = buildNextMetadata({
-    title: "My Page Title",
-    description: "A comprehensive description of my page",
-    canonical: "/my-page",
-    image: "/images/og-image.jpg",
-    imageAlt: "Page preview image",
-    type: "article",
-    locale: "en_US",
-    publishedTime: "2025-01-15T10:00:00Z",
-    author: "John Doe",
-    keywords: ["SEO", "optimization", "Next.js"]
-});
-```
+> See [README_DEV.md](./README_DEV.md) for a full local testing setup using Vite.
 
 ## Contributing
 
@@ -138,4 +97,4 @@ Components and features are actively developed and may change. Community contrib
 
 ## License
 
-Glitch SEO is licensed under the [MIT License](https://github.com/IkramMbz/glitch-seo/blob/main/LICENSE).
+seo.gk is licensed under the [MIT License](https://github.com/IkramMbz/seo-gk/blob/main/LICENSE).

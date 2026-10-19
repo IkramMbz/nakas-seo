@@ -1,5 +1,5 @@
 {
-    "name": "glitch-seo",
+    "name": "seo-gk",
     "version": "0.3.0",
     "description": "Real-time SEO analysis tool providing instant, lightweight feedback to improve web content while coding",
     "keywords": [
@@ -41,7 +41,7 @@
     "scripts": {
         "build:css": "rimraf dist/styles && esbuild src/styles/index.css --bundle --minify --outfile=dist/styles/index.css",
         "clean": "rimraf dist",
-        "build": "pnpm run clean && pnpm run fmt:check && pnpm run lint && tsc && pnpm run build:css",
+        "build": "pnpm run fmt && pnpm run lint && pnpm run clean && tsc && pnpm run build:css",
         "dev": "tsc --watch",
         "lint": "oxlint --max-warnings=0",
         "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",

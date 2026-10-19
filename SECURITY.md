@@ -2,19 +2,19 @@
 
 ## Supported Versions
 
-This section outlines which versions of Glitch SEO are actively supported with security updates.
+This section outlines which versions of seo.gk are actively supported with security updates.
 
 | Version | Supported          |
 | ------- | ------------------ |
 | 0.3.x   | :white_check_mark: |
 
-> Note: As Glitch SEO is currently in testing, only version 0.3.x is supported. Future releases will expand support.
+> Note: As seo.gk is currently in testing, only version 0.3.x is supported. Future releases will expand support.
 
 ---
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability in Glitch SEO, please report it responsibly:
+If you discover a security vulnerability in seo.gk, please report it responsibly:
 
 1. **Email:** Send details to `contact@mbechezi.fr` with a clear subject like `Security Vulnerability Report`.
 2. **Response Time:** Expect a response within 48 hours.

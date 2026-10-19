@@ -36,12 +36,12 @@ const SEOCheckerHeader = ({
 
     return (
         <header
-            className="glitch-seo-checker-header"
+            className="seo-gk-checker-header"
             style={{
                 background: `linear-gradient(to right, rgba(0,0,0,1) 30%, ${endColor})`
             }}
         >
-            <div className="glitch-seo-checker-header-top">
+            <div className="seo-gk-checker-header-top">
                 <div>
                     <p className="paragraph-xl">{percentage}%</p>
                     <p color="#fff" className="paragraph-sm">
@@ -49,7 +49,7 @@ const SEOCheckerHeader = ({
                     </p>
                 </div>
 
-                <button onClick={onClose} className="glitch-seo-checker-close" aria-label="Close">
+                <button onClick={onClose} className="seo-gk-checker-close" aria-label="Close">
                     <svg
                         className="lucide lucide-eye-off-icon lucide-eye-off"
                         xmlns="http://www.w3.org/2000/svg"
@@ -70,11 +70,11 @@ const SEOCheckerHeader = ({
                 </button>
             </div>
 
-            <div className="glitch-seo-checker-status">
+            <div className="seo-gk-checker-status">
                 {status.map(({ label, id }) => (
-                    <div key={label} className="glitch-seo-checker-status-item">
+                    <div key={label} className="seo-gk-checker-status-item">
                         <span
-                            className={`glitch-seo-checker-status-color glitch-seo-checker-status-${id}`}
+                            className={`seo-gk-checker-status-color seo-gk-checker-status-${id}`}
                         ></span>
                         {label}
                     </div>

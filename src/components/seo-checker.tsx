@@ -6,7 +6,7 @@ import SEOCheckerHeader from "./seo-checker-header.js";
 import SEOCheckList from "./seo-checklist.js";
 import { useSeoAudit } from "../hooks/use-seo-audit.js";
 
-const OPEN_KEY = "glitch-seo-checker-open";
+const OPEN_KEY = "seo-gk-checker-open";
 
 const SeoChecker = (): React.ReactElement | null => {
     const audit = useSeoAudit();
@@ -21,7 +21,7 @@ const SeoChecker = (): React.ReactElement | null => {
     const percentage = Math.round((audit.score / audit.total) * 100);
 
     return (
-        <div id="glitch-seo" className="card">
+        <div id="seo-gk" className="card">
             {open ? (
                 <>
                     <SEOCheckerHeader
@@ -42,14 +42,14 @@ const SeoChecker = (): React.ReactElement | null => {
                         setOpen(true);
                         localStorage.setItem(OPEN_KEY, "true");
                     }}
-                    id="glitch-seo-button"
+                    id="seo-gk-button"
                 >
-                    <p className="glitch-seo-button-text" style={{ color: "#000" }}>
+                    <p className="seo-gk-button-text" style={{ color: "#000" }}>
                         {percentage}% of SEO compliance
                     </p>
 
                     <svg
-                        className="glitch-seo-button-icon lucide lucide-eye-icon lucide-eye"
+                        className="seo-gk-button-icon lucide lucide-eye-icon lucide-eye"
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"

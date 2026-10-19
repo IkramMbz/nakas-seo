@@ -11,7 +11,7 @@ const StatusIcon = ({ status }: { status: SeoStatus }): React.ReactElement => {
     if (status === "success")
         return (
             <svg
-                className="icon glitch-seo-text-success lucide lucide-badge-check-icon lucide-badge-check"
+                className="icon seo-gk-text-success lucide lucide-badge-check-icon lucide-badge-check"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -29,7 +29,7 @@ const StatusIcon = ({ status }: { status: SeoStatus }): React.ReactElement => {
     if (status === "warning")
         return (
             <svg
-                className="icon glitch-seo-text-warning lucide lucide-circle-alert-icon lucide-circle-alert"
+                className="icon seo-gk-text-warning lucide lucide-circle-alert-icon lucide-circle-alert"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -48,7 +48,7 @@ const StatusIcon = ({ status }: { status: SeoStatus }): React.ReactElement => {
     if (status === "error")
         return (
             <svg
-                className="icon glitch-seo-text-error lucide lucide-circle-x-icon lucide-circle-x"
+                className="icon seo-gk-text-error lucide lucide-circle-x-icon lucide-circle-x"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -66,7 +66,7 @@ const StatusIcon = ({ status }: { status: SeoStatus }): React.ReactElement => {
         );
     return (
         <svg
-            className="icon glitch-seo-text-info lucide lucide-badge-info-icon lucide-badge-info"
+            className="icon seo-gk-text-info lucide lucide-badge-info-icon lucide-badge-info"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -93,7 +93,7 @@ const formatLabel = (text: string): string =>
 
 const SEOCheckList = ({ checks }: SeoCheckListProps): React.ReactElement => {
     return (
-        <div className="glitch-seo-checklist">
+        <div className="seo-gk-checklist">
             {Object.entries(checks).map(([key, value]) => {
                 // const borderColors: Record<SeoStatus, string> = {
                 //   success: "border-green-500",
@@ -105,7 +105,7 @@ const SEOCheckList = ({ checks }: SeoCheckListProps): React.ReactElement => {
                 const status: SeoStatus = value.status;
 
                 return (
-                    <div key={key} className="glitch-seo-checklist-item">
+                    <div key={key} className="seo-gk-checklist-item">
                         <StatusIcon status={status} />
 
                         <div>
