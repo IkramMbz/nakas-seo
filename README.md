@@ -1,4 +1,4 @@
-![](/assets/media/img/logo.png)
+<!-- ![](/assets/media/img/logo.png) -->
 
 # seo.gk
 
@@ -7,8 +7,8 @@
 **seo.gk** by Glitch Kids, is a lightweight React library that provides real-time SEO auditing and optimization tools for your web applications. It automatically analyzes your pages and displays actionable insights to improve your search engine rankings.
 
 Framework-agnostic, it works with any React-based setup (Astro, Next.js, Vite, etc.).
-
-🟠**Note:** seo.gk is currently in the testing phase and is not yet available on npm. It will be released soon.
+<!-- 🟠 -->
+**Note:** seo.gk is currently in the testing phase and is not yet available on npm. It will be released soon.
 
 ## Table of Contents
 
