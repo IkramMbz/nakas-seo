@@ -1,4 +1,4 @@
-import "../assets/styles/app.css";
+import "./styles/index.css";
 export { default as SEOChecker } from "./components/seo-checker.js";
 export * from "./seo.core.js";
 //# sourceMappingURL=index.js.map

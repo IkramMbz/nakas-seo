@@ -2,12 +2,13 @@
 
 # seo.gk
 
-[![Release v0.3.0](https://img.shields.io/badge/release-v0.3.0-white)](https://github.com/IkramMbz/seo-gk/blob/main/README.md#installation) [![Glitch Kids Suite](assets/media/img/glitch-kids-suite.svg)](https://github.com/glitchkids) [![License](assets/media/img/license-mit.svg)](https://github.com/IkramMbz/seo-gk/blob/main/LICENSE) [![Node.js](assets/media/img/nodejs.svg)](https://nodejs.org/) [![TypeScript](assets/media/img/typescript.svg)](https://www.typescriptlang.org/) [![Frontend React](assets/media/img/react.svg)](https://reactjs.org/)
+[![Release v0.3.1](https://img.shields.io/badge/release-v0.3.1-white)](https://github.com/IkramMbz/seo-gk/blob/main/README.md#installation) [![Glitch Kids Suite](assets/media/img/glitch-kids-suite.svg)](https://github.com/glitchkids) [![License](assets/media/img/license-mit.svg)](https://github.com/IkramMbz/seo-gk/blob/main/LICENSE) [![Node.js](assets/media/img/nodejs.svg)](https://nodejs.org/) [![TypeScript](assets/media/img/typescript.svg)](https://www.typescriptlang.org/) [![Frontend React](assets/media/img/react.svg)](https://reactjs.org/)
 
 **seo.gk** by Glitch Kids, is a lightweight React library that provides real-time SEO auditing and optimization tools for your web applications. It automatically analyzes your pages and displays actionable insights to improve your search engine rankings.
 
 Framework-agnostic, it works with any React-based setup (Astro, Next.js, Vite, etc.).
 <!-- 🟠 -->
+
 **Note:** seo.gk is currently in the testing phase and is not yet available on npm. It will be released soon.
 
 ## Table of Contents
@@ -44,6 +45,24 @@ Then install the library directly from GitHub (since it's not yet published on n
 ```bash
 npm install https://github.com/IkramMbz/seo.gk
 ```
+
+**Note:** For vite
+
+## Vite Configuration
+
+If you're using Vite (or Astro's Vite-based dev server), `seo-gk` currently ships a CSS import path that can break dependency optimization during SSR. Exclude it explicitly in your Vite config:
+
+```js
+export default defineConfig({
+    vite: {
+        optimizeDeps: {
+            exclude: ["seo-gk"]
+        }
+    }
+});
+```
+
+> **Note:** `optimizeDeps` must be a top-level key under `vite`, not nested inside `ssr`.
 
 ## Usage
 
