@@ -2,7 +2,7 @@
 
 # seo.gk
 
-[![Release v0.3.2](https://img.shields.io/badge/release-v0.3.2-white)](https://github.com/IkramMbz/seo-gk/blob/main/README.md#installation) [![Glitch Kids Suite](assets/media/img/glitch-kids-suite.svg)](https://github.com/glitchkids) [![License](assets/media/img/license-mit.svg)](https://github.com/IkramMbz/seo-gk/blob/main/LICENSE) [![Node.js](assets/media/img/nodejs.svg)](https://nodejs.org/) [![TypeScript](assets/media/img/typescript.svg)](https://www.typescriptlang.org/) [![Frontend React](assets/media/img/react.svg)](https://reactjs.org/)
+[![Release v0.3.3](https://img.shields.io/badge/release-v0.3.3-white)](https://github.com/IkramMbz/seo-gk/blob/main/README.md#installation) [![Glitch Kids Suite](assets/media/img/glitch-kids-suite.svg)](https://github.com/glitchkids) [![License](assets/media/img/license-mit.svg)](https://github.com/IkramMbz/seo-gk/blob/main/LICENSE) [![Node.js](assets/media/img/nodejs.svg)](https://nodejs.org/) [![TypeScript](assets/media/img/typescript.svg)](https://www.typescriptlang.org/) [![Frontend React](assets/media/img/react.svg)](https://reactjs.org/)
 
 **seo.gk** by Glitch Kids, is a lightweight React library that provides real-time SEO auditing and optimization tools for your web applications. It automatically analyzes your pages and displays actionable insights to improve your search engine rankings.
 
