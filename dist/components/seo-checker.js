@@ -16,7 +16,7 @@ const SeoChecker = () => {
     if (!audit)
         return null;
     const percentage = Math.round((audit.score / audit.total) * 100);
-    return (_jsx("div", { id: "seo-gk", className: "card", children: open ? (_jsxs(_Fragment, { children: [_jsx(SEOCheckerHeader, { percentage: percentage, score: audit.score, total: audit.total, onClose: () => {
+    return (_jsx("div", { id: "seo-gk", children: open ? (_jsxs(_Fragment, { children: [_jsx(SEOCheckerHeader, { percentage: percentage, score: audit.score, total: audit.total, onClose: () => {
                         setOpen(false);
                         localStorage.setItem(OPEN_KEY, "false");
                     } }), _jsx(SEOCheckList, { checks: audit.checks })] })) : (_jsxs("button", { onClick: () => {

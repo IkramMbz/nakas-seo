@@ -21,7 +21,7 @@ const SeoChecker = (): React.ReactElement | null => {
     const percentage = Math.round((audit.score / audit.total) * 100);
 
     return (
-        <div id="seo-gk" className="card">
+        <div id="seo-gk">
             {open ? (
                 <>
                     <SEOCheckerHeader

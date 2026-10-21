@@ -1,18 +1,27 @@
 #seo-gk {
     max-height: 32rem;
-    bottom: var(--spacing-unit);
-    font-size: var(--font-size-sm);
-    right: var(--spacing-unit);
-    padding: 0 !important;
+    background: var(--seo-color-secondary-background);
+    border: 1px solid var(--seo-color-primary-border);
+    border-radius: var(--seo-radius-universal);
+    box-shadow: var(--seo-shadow-universal);
+    bottom: var(--seo-spacing-unit);
+    display: flex;
+    flex-direction: column;
+    font-size: var(--seo-font-size-sm);
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    right: var(--seo-spacing-unit);
     position: fixed;
     z-index: 2147483643;
 }
 
 #seo-gk-button {
     cursor: pointer;
-    padding: var(--spacing-unit-quart) var(--spacing-unit-half);
+    padding: var(--seo-spacing-unit-quart) var(--seo-spacing-unit-half);
     border-radius: 9999px;
-    box-shadow: var(--shadow-universal);
+    box-shadow: var(--seo-shadow-universal);
     background-color: #fff;
     color: #000;
     border: none;
@@ -37,7 +46,7 @@
 
 .seo-gk-checker-status,
 .seo-gk-checker-status-item {
-    gap: var(--spacing-unit-quart);
+    gap: var(--seo-spacing-unit-quart);
 }
 
 .seo-gk-button-text {
@@ -50,22 +59,22 @@
 
 #seo-gk-button,
 .seo-gk-checklist-item {
-    gap: var(--spacing-unit-half);
+    gap: var(--seo-spacing-unit-half);
     text-align: left;
 }
 
 .seo-gk-checklist,
 .seo-gk-checker-status {
-    gap: var(--spacing-unit);
+    gap: var(--seo-spacing-unit);
 }
 
 .seo-gk-checklist {
     width: 20rem;
-    color: var(--color-primary-color);
+    color: var(--seo-color-primary-color);
     flex: 1;
     flex-direction: column;
     overflow-y: auto;
-    padding: var(--spacing-unit);
+    padding: var(--seo-spacing-unit);
 }
 
 .seo-gk-checklist-item .title {
@@ -79,9 +88,9 @@
 .seo-gk-checker-header {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-    background: linear-gradient(to right, #000 30%, var(--color-error)) !important;
+    background: linear-gradient(to right, #000 30%, var(--seo-color-error)) !important;
     color: #fff;
-    padding: var(--spacing-unit);
+    padding: var(--seo-spacing-unit);
 }
 
 .seo-gk-checker-header-top {
@@ -102,23 +111,23 @@
 }
 
 .seo-gk-checker-status-color {
-    border-radius: var(--radius-universal);
+    border-radius: var(--seo-radius-universal);
 }
 
 .seo-gk-text-success {
-    color: var(--color-success);
+    color: var(--seo-color-success);
 }
 
 .seo-gk-text-warning {
-    color: var(--color-warning);
+    color: var(--seo-color-warning);
 }
 
 .seo-gk-text-error {
-    color: var(--color-error);
+    color: var(--seo-color-error);
 }
 
 .seo-gk-text-info {
-    color: var(--color-info);
+    color: var(--seo-color-info);
 }
 
 .seo-gk-checker-status-success,
@@ -129,19 +138,19 @@
 }
 
 .seo-gk-checker-status-success {
-    background-color: var(--color-success);
+    background-color: var(--seo-color-success);
 }
 
 .seo-gk-checker-status-warning {
-    background-color: var(--color-warning);
+    background-color: var(--seo-color-warning);
 }
 
 .seo-gk-checker-status-error {
-    background-color: var(--color-error);
+    background-color: var(--seo-color-error);
 }
 
 .seo-gk-checker-status-info {
-    background-color: var(--color-info);
+    background-color: var(--seo-color-info);
 }
 
 .seo-gk-checker-close {
@@ -161,5 +170,5 @@
 }
 
 .seo-gk-checker-status {
-    margin-top: var(--spacing-unit-quart);
+    margin-top: var(--seo-spacing-unit-quart);
 }

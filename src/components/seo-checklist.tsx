@@ -110,7 +110,10 @@ const SEOCheckList = ({ checks }: SeoCheckListProps): React.ReactElement => {
 
                         <div>
                             <p className="title">{formatLabel(key)}</p>
-                            <p className="subtitle" style={{ color: "var(--color-text-color)" }}>
+                            <p
+                                className="subtitle"
+                                style={{ color: "var(--seo-color-text-color)" }}
+                            >
                                 {value.message}
                             </p>
                         </div>

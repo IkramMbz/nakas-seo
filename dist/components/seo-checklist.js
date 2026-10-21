@@ -19,7 +19,7 @@ const SEOCheckList = ({ checks }) => {
             //   info: "border-blue-500",
             // };
             const status = value.status;
-            return (_jsxs("div", { className: "seo-gk-checklist-item", children: [_jsx(StatusIcon, { status: status }), _jsxs("div", { children: [_jsx("p", { className: "title", children: formatLabel(key) }), _jsx("p", { className: "subtitle", style: { color: "var(--color-text-color)" }, children: value.message })] })] }, key));
+            return (_jsxs("div", { className: "seo-gk-checklist-item", children: [_jsx(StatusIcon, { status: status }), _jsxs("div", { children: [_jsx("p", { className: "title", children: formatLabel(key) }), _jsx("p", { className: "subtitle", style: { color: "var(--seo-color-text-color)" }, children: value.message })] })] }, key));
         }) }));
 };
 export default SEOCheckList;

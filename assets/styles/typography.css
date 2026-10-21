@@ -10,7 +10,7 @@ h4,
 h5,
 h6,
 .heading {
-    font-family: var(--font-heading);
+    font-family: var(--seo-font-heading);
     font-synthesis: none;
     font-weight: 500;
     letter-spacing: -0.03em;
@@ -19,30 +19,30 @@ h6,
 
 h1,
 .heading-h1 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--seo-font-size-3xl);
     font-weight: 600;
 }
 
 h2,
 .heading-h2 {
-    font-size: var(--font-size-2xl);
+    font-size: var(--seo-font-size-2xl);
 }
 
 h3,
 .heading-h3 {
-    font-size: var(--font-size-xl);
+    font-size: var(--seo-font-size-xl);
 }
 
 h4,
 .heading-h4 {
-    font-size: var(--font-size-lg);
+    font-size: var(--seo-font-size-lg);
 }
 
 h5,
 .heading-h5,
 h6,
 .heading-h6 {
-    font-size: var(--font-size-base);
+    font-size: var(--seo-font-size-base);
 }
 
 .paragraph a {
@@ -50,33 +50,33 @@ h6,
 }
 
 .paragraph {
-    color: var(--color-secondary-color);
-    font-family: var(--font-body);
+    color: var(--seo-color-secondary-color);
+    font-family: var(--seo-font-body);
     text-wrap: pretty;
 }
 
 /* Sizes */
 
 .paragraph-xs {
-    font-size: var(--font-size-xs);
+    font-size: var(--seo-font-size-xs);
 }
 
 .paragraph-sm {
-    font-size: var(--font-size-sm);
+    font-size: var(--seo-font-size-sm);
 }
 
 .paragraph-md,
 .input-field {
-    font-size: var(--font-size-base);
+    font-size: var(--seo-font-size-base);
 }
 
 .paragraph-lg,
 .input-label {
-    font-size: var(--font-size-lg);
+    font-size: var(--seo-font-size-lg);
 }
 
 .paragraph-xl {
-    font-size: var(--font-size-xl);
+    font-size: var(--seo-font-size-xl);
 }
 
 .text-overflow {
