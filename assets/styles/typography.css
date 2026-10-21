@@ -1,87 +1,29 @@
-:root {
-    --lh-body: 1.6;
-    --lh-heading: 1.12;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.heading {
-    font-family: var(--seo-font-heading);
-    font-synthesis: none;
-    font-weight: 500;
-    letter-spacing: -0.03em;
-    text-wrap: balance;
-}
-
-h1,
-.heading-h1 {
-    font-size: var(--seo-font-size-3xl);
-    font-weight: 600;
-}
-
-h2,
-.heading-h2 {
-    font-size: var(--seo-font-size-2xl);
-}
-
-h3,
-.heading-h3 {
-    font-size: var(--seo-font-size-xl);
-}
-
-h4,
-.heading-h4 {
-    font-size: var(--seo-font-size-lg);
-}
-
-h5,
-.heading-h5,
-h6,
-.heading-h6 {
-    font-size: var(--seo-font-size-base);
-}
-
-.paragraph a {
+.seo-paragraph a {
     font-weight: 700;
 }
 
-.paragraph {
+.seo-paragraph {
     color: var(--seo-color-secondary-color);
     font-family: var(--seo-font-body);
     text-wrap: pretty;
 }
 
-/* Sizes */
-
-.paragraph-xs {
+.seo-paragraph-xs {
     font-size: var(--seo-font-size-xs);
 }
 
-.paragraph-sm {
+.seo-paragraph-sm {
     font-size: var(--seo-font-size-sm);
 }
 
-.paragraph-md,
-.input-field {
+.seo-paragraph-md {
     font-size: var(--seo-font-size-base);
 }
 
-.paragraph-lg,
-.input-label {
+.seo-paragraph-lg {
     font-size: var(--seo-font-size-lg);
 }
 
-.paragraph-xl {
+.seo-paragraph-xl {
     font-size: var(--seo-font-size-xl);
-}
-
-.text-overflow {
-    overflow: hidden;
-    text-align: left;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }

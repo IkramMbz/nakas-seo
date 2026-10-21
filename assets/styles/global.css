@@ -18,14 +18,14 @@
     --seo-color-muted: rgba(28, 27, 25, 0.05);
     --seo-color-primary-border: rgba(28, 27, 25, 0.08);
 
-    --seo-shadow-universal: 0 calc(var(--seo-spacing-unit-quart) / 2)
-        calc(var(--seo-spacing-unit-quart) / 2) rgba(0, 0, 0, 0.15);
+    --seo-shadow-universal: 0 calc(var(--seo-seo-spacing-unit-quart) / 2)
+        calc(var(--seo-seo-spacing-unit-quart) / 2) rgba(0, 0, 0, 0.15);
 
     /* Spacing */
-    --seo-spacing-unit-quart: 0.25rem;
-    --seo-spacing-unit-half: 0.5rem;
-    --seo-spacing-unit: 1rem;
-    --seo-spacing-unit-double: 2rem;
+    --seo-seo-spacing-unit-quart: 0.25rem;
+    --seo-seo-spacing-unit-half: 0.5rem;
+    --seo-seo-spacing-unit: 1rem;
+    --seo-seo-spacing-unit-double: 2rem;
 
     /* Font sizes */
     --seo-font-size-xs: 0.75rem;

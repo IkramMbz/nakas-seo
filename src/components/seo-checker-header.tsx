@@ -43,8 +43,8 @@ const SEOCheckerHeader = ({
         >
             <div className="seo-gk-checker-header-top">
                 <div>
-                    <p className="paragraph-xl">{percentage}%</p>
-                    <p color="#fff" className="paragraph-sm">
+                    <p className="seo-paragraph-xl">{percentage}%</p>
+                    <p color="#fff" className="seo-paragraph-sm">
                         {score}/{total}
                     </p>
                 </div>
